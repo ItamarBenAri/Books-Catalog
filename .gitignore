@@ -1,0 +1,37 @@
+﻿# === Global Ignore ===
+**/Dependencies/
+
+# === .NET Ignore Rules ===
+**/bin/
+**/obj/
+
+# Ignore build outputs for specific targets
+**/bin/Debug/
+**/obj/Debug/
+**/bin/Release/
+**/obj/Release/
+**/bin/Debug/net8.0/
+**/obj/Debug/net8.0/
+
+# VS/IDE stuff
+**/.vs/
+**/.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# === Angular Frontend Ignore Rules ===
+BooksCatalogFrontend/node_modules/
+BooksCatalogFrontend/dist/
+BooksCatalogFrontend/build/
+BooksCatalogFrontend/.angular/
+BooksCatalogFrontend/.vscode/
+BooksCatalogFrontend/coverage/
+BooksCatalogFrontend/obj/
+
+# === System Files ===
+*.log
+Thumbs.db
+.DS_Store
+.idea/

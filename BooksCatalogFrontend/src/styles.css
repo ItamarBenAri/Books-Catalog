@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to right, #b6fbff, #83a4d4);
+    text-align: center;
+}
+
+a {
+    color: blue;
+}
+
+form {
+    width: 300px;
+    border: 1px solid;
+    text-align: left;
+    padding: 0 10px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px;
+}
+
+form > input, form > button {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+form > label, form > button {
+    margin-top: 20px;
+}
+
+form > button {
+    margin-bottom: 20px;
+}
+
+form > span {
+    color: white;
+    position: absolute;
+    margin-left: 20px;
+}

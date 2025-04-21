@@ -1,0 +1,63 @@
+<div>
+    <form (ngSubmit)="send()" #myForm="ngForm">
+
+        <ng-container *ngIf="!isEditMode">
+            <label>ISBN: </label>
+            <input type="text" name="isbn" [(ngModel)]="book.isbn" #isbnBox="ngModel" required minlength="2" maxlength="13" pattern="^(?:\d{9}[\dXx]|\d{13})$">
+            <div class="invalid-feedback d-block" *ngIf="isbnBox.touched && isbnBox.errors?.['required']">Missing ISBN.</div>
+            <div class="invalid-feedback d-block" *ngIf="isbnBox.touched && isbnBox.errors?.['minlength']">ISBN too short.</div>
+            <div class="invalid-feedback d-block" *ngIf="isbnBox.touched && isbnBox.errors?.['maxlength']">ISBN too long.</div>
+            <div class="invalid-feedback d-block" *ngIf="isbnBox.touched && isbnBox.errors?.['pattern']">
+                Invalid ISBN format (must be ISBN-10 or ISBN-13) without "-".
+            </div>
+        </ng-container>
+
+        <div *ngIf="isEditMode">
+            <span>ISBN: </span>
+            <span *ngIf="isEditMode" class="fw-bold">{{ book.isbn }}</span>
+        </div>
+
+        <label>Title: </label>
+        <input type="text" name="title" [(ngModel)]="book.title" #titleBox="ngModel" required minlength="2" maxlength="50">
+        <div class="invalid-feedback d-block" *ngIf="titleBox.touched && titleBox.errors?.['required']">Missing title.</div>
+        <div class="invalid-feedback d-block" *ngIf="titleBox.touched && titleBox.errors?.['minlength']">Title too short.</div>
+        <div class="invalid-feedback d-block" *ngIf="titleBox.touched && titleBox.errors?.['maxlength']">Title too long.</div>
+
+        <label>Category: </label>
+        <input type="text" name="category" [(ngModel)]="book.category" #categoryBox="ngModel" required minlength="2" maxlength="50">
+        <div class="invalid-feedback d-block" *ngIf="categoryBox.touched && categoryBox.errors?.['required']">Missing category.</div>
+        <div class="invalid-feedback d-block" *ngIf="categoryBox.touched && categoryBox.errors?.['minlength']">Category too short.</div>
+        <div class="invalid-feedback d-block" *ngIf="categoryBox.touched && categoryBox.errors?.['maxlength']">Category too long.</div>
+
+        <label>Author/s: </label>
+        <input type="text" name="authorsInput" [(ngModel)]="authorsInput" #authorBox="ngModel" required (ngModelChange)="onAuthorChange()" minlength="2" maxlength="200" />
+        <div class="invalid-feedback d-block" *ngIf="authorBox.touched && authorBox.errors?.['required']">Missing author.</div>
+        <div class="invalid-feedback d-block" *ngIf="authorBox.touched && authorBox.errors?.['minlength']">Author input too short.</div>
+        <div class="invalid-feedback d-block" *ngIf="authorBox.touched && authorBox.errors?.['maxlength']">Author input too long.</div>
+
+        <label>Cover (Optional): </label>
+        <input type="text" name="cover" [(ngModel)]="book.cover" #coverBox="ngModel">
+
+        <label>Language: </label>
+        <input type="text" name="language" [(ngModel)]="book.language" #languageBox="ngModel" required minlength="2" maxlength="20">
+        <div class="invalid-feedback d-block" *ngIf="languageBox.touched && languageBox.errors?.['required']">Missing language.</div>
+        <div class="invalid-feedback d-block" *ngIf="languageBox.touched && languageBox.errors?.['minlength']">Language too short.</div>
+        <div class="invalid-feedback d-block" *ngIf="languageBox.touched && languageBox.errors?.['maxlength']">Language too long.</div>
+
+        <label>Published Year: </label>
+        <input type="number" name="year" step="1" [(ngModel)]="book.year" #yearBox="ngModel" required min="0" [max]="currentYear">
+        <div class="invalid-feedback d-block" *ngIf="yearBox.touched && yearBox.errors?.['required']">Missing year.</div>
+        <div class="invalid-feedback d-block" *ngIf="yearBox.touched && yearBox.errors?.['min']">Year can't be negative.</div>
+        <div class="invalid-feedback d-block" *ngIf="yearBox.touched && yearBox.errors?.['max']">Year can't exceed {{ currentYear }}.</div>
+
+        <label>Price: </label>
+        <input type="number" name="price" step="0.01" [(ngModel)]="book.price" #priceBox="ngModel" required min="0" max="500">
+        <div class="invalid-feedback d-block" *ngIf="priceBox.touched && priceBox.errors?.['required']">Missing price.</div>
+        <div class="invalid-feedback d-block" *ngIf="priceBox.touched && priceBox.errors?.['min']">Price can't be negative.</div>
+        <div class="invalid-feedback d-block" *ngIf="priceBox.touched && priceBox.errors?.['max']">Price can't exceed 500.</div>
+
+        <button [disabled]="myForm.invalid">
+            {{ isEditMode ? 'Edit' : 'Add' }}
+        </button>
+    </form>
+</div>
