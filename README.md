@@ -1,10 +1,7 @@
-﻿```markdown
 # 📚 Books Catalog Solution
 
 A full-featured, cleanly structured book catalog system built with **Angular** for the frontend and **ASP.NET Core Web API** for the backend.  
 The system allows users to manage books with detailed metadata, using XML-based storage on the server side and a user-friendly UI on the client side.
-```
----
 ```
 ## 📦 Solution Structure
 
