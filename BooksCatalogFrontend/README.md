@@ -68,5 +68,5 @@ Frontend will run at: `http://localhost:4200`
 
 ## 📞 Contact
 
-Maintained by **Itamar Damari Ben Ari**  
+Maintained by **Itamar Damari Ben Ari** - [etamar234@gmail.com](mailto:etamar234@gmail.com) 
 Feel free to reach out for feedback or contributions.
