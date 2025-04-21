@@ -35,7 +35,7 @@ A full-featured web application for managing a catalog of books, including funct
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/itamarBenAri/books-catalog-frontend.git
+git clone https://github.com/itamarBenAri/BooksCatalog.git
 cd BooksCatalog
 ```
 
